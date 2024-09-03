@@ -1,6 +1,6 @@
 # Fopy
 
-Fopy is a quick and dirty wrapper allowing you to call Bill Gray's [Find_Orb](https://www.projectpluto.com/find_orb.htm) from Python.  It's probably best thought of as a shellscript for *nix systems at this point.
+Fopy is a quick and dirty wrapper allowing you to call Bill Gray's [Find_Orb](https://www.projectpluto.com/find_orb.htm) from Python.  It's probably best thought of as a glorified shellscript for *nix systems at this point.
 
 ## Setting up Find_Orb (required)
 
