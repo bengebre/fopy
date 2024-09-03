@@ -6,7 +6,7 @@ from astropy.coordinates import SkyCoord
 
 class Fopy:
 
-    def __init__(self,solve_dir,reset=True):
+    def __init__(self,solve_dir,reset):
 
         self.solve_dir = solve_dir.rstrip('/')
         self.solve_id = 0
@@ -89,9 +89,11 @@ class Fopy:
 
     #write mpc file for observations
     def write(self,radecs,times,locs,idx=None):
+        increment=True
 
         if idx==None:
             idx=self.solve_id
+            increment=False
         
         fn = self.solve_dir + "/S{:06d}.mpc".format(idx)
         
@@ -102,7 +104,8 @@ class Fopy:
             f.write("\n")
         f.close()
 
-        self.solve_id += 1
+        if increment
+            self.solve_id += 1
 
         return fn
 
@@ -113,7 +116,7 @@ class Fopy:
         result = subprocess.run(fo_str, shell=True, capture_output=True, text=True)
 
         file_idx = fname.split('/')[-1].split('.')[0]
-        mv_str = "mv ~/.find_orb/jsons/{:s}.json {:s}".format(file_idx,self.solve_dir)
+        mv_str = "rm -f {:s}/{:s}.json; mv ~/.find_orb/jsons/{:s}.json {:s}".format(self.solve_dir,file_idx,file_idx,self.solve_dir)
         result = subprocess.run(mv_str, shell=True, capture_output=True, text=True)
 
         return "{:s}/{:s}.json".format(self.solve_dir,file_idx)
