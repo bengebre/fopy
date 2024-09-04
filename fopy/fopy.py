@@ -104,7 +104,7 @@ class Fopy:
             f.write("\n")
         f.close()
 
-        if increment
+        if increment:
             self.solve_id += 1
 
         return fn
