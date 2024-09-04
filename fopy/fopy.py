@@ -93,6 +93,7 @@ class Fopy:
 
         if idx==None:
             idx=self.solve_id
+        else:
             increment=False
         
         fn = self.solve_dir + "/S{:06d}.mpc".format(idx)
